@@ -1,0 +1,215 @@
+// bfs on graph
+u will passed the list of adjacent nodes of each node
+created a visited array of size adjaceent nodes list of have all values as 0
+use queue.
+push the 0 in to queue and make visted[0] as true.
+iterate till queue is empty
+mark the visited of element as true
+ pop the element and get the list of adj nodes of popped value and push in to queue if its not visisted
+
+
+// dfs on graph
+u will passed the list of adjacent nodes of each node
+created a visited array of size adjaceent nodes list of have all values as 0
+use queue.
+push the last node in to queue and make visted[node] as true.
+iterate till queue is empty
+mark the visited of element as true
+ call the dfs on with the element of adjacent nodes
+
+ // rotten oranges - min time
+ create a visited array and also delta row -1,0,+1,0 and delta col 0,1,0,-1
+ get all the rotten oranges and mark them as 2 and visited and add to queue
+ use bfs and iterate and check if node is not visited,not rotten,not empty then rotten it and push in queue
+
+ // detect-cycle-in-an-undirected-graph-using-bfs
+consider parent as -1, then on iterating the adjacent list, make the start node as parent to next adjacent nodes
+ use queue and visited list and parent list
+ iterate queue and if we get adjacent node visited and not a parent then loop detected.
+
+ // 0/1 Matrix (Bfs Problem)
+ use visited and get the queue where u have 1's and have a matrix and mark them as 0
+
+ //surrounded-regions-replace-os-with-xs
+
+ use dfs and check for boundaries if 0 and make the 0's connected to it as visited.
+
+ the unvisited one's can be marked as x.
+
+
+ //Word Ladder
+
+ search the length between two word
+
+ wordList = {"geek", "gefk"}
+ startWord = "gedk", targetWord= "geek"
+ Output:
+ 2
+
+
+use set to store the list of words
+use BFS queue to start from first element
+check if the new word with changes character part of set. if yes remove it from set and add to queue.
+check if it matches with target word, then return true.
+
+
+//count number islands
+
+i will take is visited matrix
+
+i will take list of ones in matrix
+will traverse 8 directions and mark ones as visited untill completed the queue.
+will take next one if there and try to see connected ones and increase the count
+
+
+// check if bipartite graph = no two adjacent nodes are of same color
+
+use dfs,iterate pass is visited and ajacent list,pass color as 0, on next iteration pass 1-color as color.
+
+check if current node color = last node color then return false.
+
+//detect-cycle-in-a-directed-graph-using-dfs
+use is visisted, on recursion if its visited then mark it cyclic.
+
+// topological sort of graph - dfs
+
+use dfs, visited array and use stack to store elements.
+print stack elements
+
+//Kahn's Algorithm | Topological Sort Algorithm | BFS
+
+use array to store element, use queue to get the next elements.
+
+use indegree array
+
+indegree array is number of incoming connections to the node.
+
+iterate over queue till empty
+
+get the element out of queue and push to return array.
+iterate over adjacent ones of element out of queue and decrease indegree value,
+if indegree value is 0 push in queue
+
+
+check if length of array == number of elements, then topological sort else its cyclic one
+
+toposort is when we have some case before other just apply.
+
+toposort is the list of elements in the graph based on directions and order
+no incoming will be always first - dfs
+private void topoSort(int node, ArrayList < ArrayList < Pair >> adj,
+    int vis[], Stack < Integer > st) {
+    //This is the function to implement Topological sort.
+
+    vis[node] = 1;
+    for (int i = 0; i < adj.get(node).size(); i++) {
+      int v = adj.get(node).get(i).first;
+      if (vis[v] == 0) {
+        topoSort(v, adj, vis, st);
+      }
+    }
+    st.add(node);
+  }
+
+
+//shortest-path-in-undirected-graph
+
+use BFS
+prepare adjancent matrix using edges
+        int[][] edge = {{0,1},{0,3},{3,4},{4,5},{5,6},{1,2},{2,6},{6,7},{7,8},{6,8}};
+for(int i = 0;i<m;i++) {
+            adj.get(edges[i][0]).add(edges[i][1]);
+            adj.get(edges[i][1]).add(edges[i][0]);
+        }
+have an result array with all int_max
+
+set result[src] =0 and push to queue
+iterate till queue is empty
+element = queue.peek;
+for(int i : adj.get(element))
+    if(result[element] +1 < result[i])
+        result[i] = result[element]+1;
+        queue.add(i);
+
+return result
+
+//dijkstras-algorithm-using-set for undirected graph shortest distance between two nodes
+
+prepare adjcent matrix like distance,node
+
+1 ->(3,2),(5,3)
+1,2 distance is 3
+
+we need use priority queue which in turn use min heap, so it will store least value on top
+
+use parent array(if path needs to printed) and distance array.
+if we get less distance to a node than existing distance, replace that in distance array and replace the parent to the node
+
+
+//shortest-path-in-directed-acyclic-graph-topological-sort
+
+DFS
+
+take
+
+//Path With Minimum Effort - djikstra algorithm.
+
+// Bellman Ford Algorithm if we have negative edges
+//floyd wash algo - multi source multi destination algo - its more of bruteforce
+for(k)for(i)for(j)
+if distance between i,j needs to caluclated then math.min((i,j) ,(i,k)+(k,j))
+
+
+// find the weight of minimum spanning tree
+use priority queue and adjacents and iterate till it is empty, push to queue only if unvisited.
+
+
+// disjoint-set-union-by-rank-union-by-size-path-compression
+
+u need two arrays parent and rank and also size(init with 1)
+set parent to itself first
+on adding change the parent and also increase rank or size based on approach.
+check if both parents are same if they belong to same set.
+if both parents are diff then based on size or rank which is greater attach smaller to larger
+
+//kruskal algorith to get minimum weight mst
+get all edges and sort them by weight..
+
+we use disjoint set.
+create disjoint set with the list.
+iterate list
+add the edge if parent does not match using is parent of disjoint set and increase weight.
+
+//number-of-operations-to-make-network-connected-dsu
+
+consider two graphs which are not connected, check how many opertaion it takes to connect.
+
+use disjoint set, and find number of extra edges if both parents are same
+
+count number nodes have same node parent(which tells they are alone)
+
+ans = count-1(edges)
+if ans > extra edges return -1 else return ans.
+
+// most-stones-removed-with-same-row-or-column
+
+use disjoint set.
+
+and find the number of single stones which does not belong and that reduced from number of stones
+
+// number-of-islands after every operation
+
+use disjoint set.
+
+row {-1,0,1,0} col {0,1,0,-1}
+
+//making-a-large-island
+
+use disjoint set..have the connect components which are one
+
+iterate again and if value is zero and get the topbottomright left ones and see if they are one,
+ then get its parent from disjoint set. and find the max islands for which one.
+
+ //Bridges in Graph - Using Tarjan's Algorithm of time in and low time
+//strongly-connected-components-kosarajus-algorithm - use dfs two time, first normal ad reverse the edges and do dfs
+ use dfs and compute the bridges in graph

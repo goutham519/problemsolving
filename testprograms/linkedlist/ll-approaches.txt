@@ -1,0 +1,62 @@
+//middle of ll
+tortoise and hare method.
+tow pointer
+one has .next and another has next.next.
+fast != null && fast.next != null
+
+// detect if loop on linked list
+
+use tortoise and hare method and see if two pointer have same value, then it has loop
+
+fast != null && fast.next != null
+
+
+// starting point of the loop in linked list
+
+use tortoise and hare method  and is slow and fast is equals
+if equals make slow as head node and from there on move both slow and fast one time alone
+the meeting point is the starting point
+
+//finding loop length
+if slow and fast are found to be equal, then iterate till slow and fast are not equal, and find the length
+
+
+//check if ll is palindrome
+find the middle
+reverse the elements after middle
+check if elements before middle same as after middle
+
+//Remove Nth node from the back of the LL
+use two pointer one points to 1st element and next one points to n+1 node
+and iterate and delete
+
+//delete middle of linked list
+use slow and fast but make fast as head.next.next;
+
+//sort zeros, ones and twos in linkedlist
+
+use three temp variables with data as -1 for 0,1,2 and then iterate list to add zeros to tempzero, one to tempone, two to temptwo
+then assign the one temp.next and twotemp.next back to back
+
+// intersection of linked list
+
+use two pointers with heads of each list and iterate till end of both list
+
+1  4
+         5 6
+1 2 3 4
+
+
+// add one to the linked list
+use recursive approach and then if node null then return 1.
+add returned value to the data and if greated than 9 then return the carry
+iterate it.
+
+
+// add two numbers of two ll
+
+//reverse ll of size n of kth parts
+123456 k =2
+213265
+
+use 

@@ -1,0 +1,172 @@
+//Largest Element
+iterate over and check if it's greater than max -> then that's max.
+
+//find-second-smallest-and-second-largest-element-in-an-array
+use two variables smallest and second smallest and find the second smallest
+
+//check if array is sorted
+ run the loop and find if next num is less than previous...then return false
+
+ //Remove duplicates from sorted array and print
+ iterate over array then  move the elements if they are not equals
+
+ //left rotate by one place
+ use temp for having first one and then move all the next elements and place temp in last position
+
+ //left rotate by n places
+
+ reverse the first n places separately and reverse the next n separately then reverse whole array
+
+//reversing array
+use start and end and swap start , end and then increase start and decrease end.
+
+
+--------------two pointer approaches------------------------------------
+
+//move zeros or specific numbers to end
+two pointer approach -> if both nums are zero then move the second pointer else if one is zero swap , move both pointers,
+else move both pointers
+
+//Union of two arrays
+two pointer approach -> each points to starting of each array
+
+// Longest Sub arrays(only positives)  with sum passed
+// Count Subarray sum Equals K
+
+use two pointer approach by adding the elements, if sum is greater the expected then moved left pointer, sum is equal to
+ expected then max of existing then this length
+
+//two sum problem
+
+-> use sorting and then find if sum is present or not using two pointers
+->use hashset and store earlier elements and iterate over elements and see if diff of sum and element found in hashset
+
+
+
+//Rearrange Array Elements by Sign
+
+take two pointers with index 0 and 1
+assign positive starting from index 0 and increment by 2
+assign negative starting from index 1 and increment by 2
+
+
+------------------------------------------------------------------------------------
+
+// Longest Sub arrays(only positives and negative)  with sum passed *****
+
+use hash map, check if sum = expected see
+if remaining sum already present on hm then see the max of i - existing index and max else add rem to map
+
+//find missing number in an array of first n numbers
+
+use sum of n natural numbers - sum of nums in array
+
+use
+    XOR1 - XOR operation on all nums and
+    XOR2 - xor index of elems and
+    result XOR1 ^ XOR2
+
+//Find one number which appears only once all other's twice
+
+use XOR operation all nums in array - return num which is only once
+
+
+//Sort an array of 0s, 1s and 2s
+    Use hashmap to store keys and count and print but will take 0(n) space additionally
+
+Dutch National flag algorithm
+    use low,mid,high ->before low -0 , after low to mid -1 , mid to high -2
+    initialize low,mid to 0 and high to n-1
+    Start from mid iterate till high and place 0 at low,place ones at mid and 2 at high
+
+// Majority Element that occurs more than N/2 times
+
+Moore's voting algorithm
+
+use counter with zero,cur element as starting and increment if same element found and decrement if not matches with previous,
+if counter is zero use current element as max rep element , find count of the cur element and see if it's greater than n/2
+
+// Majority Elements that occurs more than N/3 times
+
+
+use two counters with zero,cur element as starting and increment if same element found and decrement if not matches with previous,
+if counter is zero use current element as max rep element , find count of the cur element and see if it's greater than n/2
+
+
+
+// Kadane’s Algorithm : Maximum Subarray Sum in an Array
+init max sum as min val,
+iterate the loop,
+if sum ==0 the make it start index
+add the element to sum, check if greater than max, then assign it to max and make it end index
+if sum < 0 then make sum as xero
+
+
+// Stock Buy Sell problem
+profit =0, min_purchased value as minvalue
+iterate over elements and find min value and check the diff between current element and min value
+and see the max of diff and earlier max value.
+
+
+// next permutation
+--example ,{2,1,3} -> 2,3,1
+-> iterate from end find the index where a element which  has lesser elements on right side
+swap that element in the index with next greater element
+reverse the elements after that index
+
+//leaders in the array - no element on right side is greater than that element
+make max ar last element
+iterate from right-1 and see if element greater than max then add it as leader and make it as max.
+
+//Longest consecutive in array
+
+put all elements in set
+iterate over set -> see the number of next elements present in set, then if more than max length, put that as max
+
+
+//Rotate the matrix by 90
+Transpose the matrix(first row become first column) - two loops i=;j=i the swap ij ->ji
+reverse each row
+
+
+//spiral prints
+
+init top = 0, right = length of first row -1, left =0, bottom = size -1
+print left to right print -- increment top
+print top to bottom -- decrement right
+check if top<= bottom print right to left --decrement bottom
+check rigt >= leftprint bottom to top -- increment left
+
+//pascals triangle
+1
+11
+121
+1331
+14641
+
+get at particular row and column -> RcC -> R!/C!*(R-C)!
+get 5th row 3rd column -> 5c3 -> 5!/(3!)(5-3)!
+        for (int i = 0; i < r; i++) {
+            val = val * (n - i);
+            val = val / (i + 1);
+        }
+use for loop on column for printing the rows
+
+// 3 sum problem
+use two loops i=0;j=i+1
+use a hashset to see if sum - a[i] - a[j] is there.
+
+or
+
+sort the array then
+iterate on array
+use j =i+1,k=n-1
+and see if sum is present
+
+skip duplicates
+
+
+// 4 sum problem
+use two loops(i=0,j=i+1) and then use two temps(k=j+1,l=n-1) and see the sum
+
+

@@ -1,0 +1,7 @@
+// power of a number
+use while loop and then instead of decrementing by 1
+multiple the number by itself and dive the number by 2 when it i divisible by 2
+
+//tortoise and hare method
+print all palindrome
+use recursion

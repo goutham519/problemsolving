@@ -1,0 +1,399 @@
+Full Binary Tree:
+A Full Binary Tree, also known as a Strict Binary Tree, adheres to the structural property where every node has either zero or two children.
+
+Complete Binary Tree:
+A Complete Binary Tree is a specialised form of Binary Tree where all levels are filled completely except possibly the last level, which is filled from left to right.
+
+All levels of the tree, except possibly the last one, are fully filled. If the last level is not completely filled, it is filled from left to right, ensuring that nodes are positioned as far left as possible.
+
+Perfect Binary Tree:
+A Perfect Binary tree is a type of Binary Tree where all leaf nodes are at the same level and the number of leaf nodes is maximised for that level.
+
+Every node in a perfect binary tree has either zero or two children. This means that every internal node (non-leaf node) has exactly two children and all leaf nodes are at the same level.
+
+//Binary Tree Traversal
+
+Depth-First Search (DFS):
+
+      1
+  2       3
+4   5   6    7
+
+Preorder Traversal is the type of Depth First Traversal where nodes are visited in the order: Root, Left then Right.
+
+1 ,2 4, 5, 3, 6, 7
+
+recursive
+print(node.data)
+preorder(node.left)
+preorder(node.right)
+
+iterative - we need to use stack
+
+push in to stack (LIFO)
+while(stack is not empty)
+val = stack.pop
+st.push(value.right)
+st.push(value.left)
+
+
+Postorder Traversal is the type of Depth First Traversal where nodes are visited in the order: Left, Right then Root.
+
+4,5,2,6,7,3,1
+
+
+postorder(node.left)
+postorder(node.right)
+print(node.data)
+
+iterative using stack
+
+use curr = root and push in stack
+while(curr not null || stack is not empty)
+    if curr!=null
+        stack.push curr.left
+        curr = curr.left
+    else
+        temp = stack.top.right
+        if temp == null
+            temp = st.top
+            st.pop
+            while(stack.isnotempty && temp == st.top.right)
+                temp = st.top, pop
+                allements.push(temp.value)
+        else
+           curr = temp
+
+inorder traversal left data right
+
+inorder(node.left)
+print(node.data)
+inorder(node.right)
+
+levelordertraversal - first level, second level and so on
+
+we need to use queue
+
+add element
+
+iterate till we have elements on queue
+create new list
+poll the element, check if left is not null add to the queue, check if right is not null add to the queue.
+add the element value  to sublist.
+add the sublist to main list
+
+// height of binary tree
+use queue
+push top element in queue.
+iterate till queue is empty and increase count and add left and right to queue if not null.
+return count
+
+// check if binary tree is balanced or not - all nodes if left height - right not >1
+then balanced binary tree
+
+
+dfsheight(treenode)
+    leftheight = dfsheight(treenode.left)
+    if(leftheight == -1) return -1
+    rightheight = dfsheight(treenode.right)
+    if(rightheight == -1) return -1
+    if(Math.abs(leftheight-rightheight)>1) return -1;
+    return max(leftheight,rightheight)+1
+
+
+// diameter of a binary tree
+find the left height and right height and sum them and see if its more than existing one, replace it.
+
+to sto iterating on each node separately we find the max value before returning the height of node.
+
+int diameter =0
+findDiam(Node)
+   if(node == null) return 0;
+   lh = findDiam(Node.left);
+   rh = findDiam(Node.right);
+   max = Math.max(max,lh+rh);
+   return Max.max(lh,rh)+1;
+
+//Maximum Sum Path in Binary Tree - use diameter logic and
+use max because we might end up having negative values
+
+
+int maxSumpath =0
+findMaxsumpath(Node)
+   if(node == null) return 0;
+   lh = Math.max(0,findMaxsumpath(Node.left));
+   rh = Math.max(0,findMaxsumpath(Node.right));
+   max = Math.max(max,lh+rh+node.data);
+   return Max.max(lh,rh)+node.data;
+
+
+//Two trees are said to be identical if these three conditions are met for every pair of nodes :'
+
+Value of a node in the first tree is equal to the value of the corresponding node in the second tree.
+Left subtree of this node is identical to the left subtree of the corresponding node.
+Right subtree of this node is identical to the right subtree of the corresponding node.
+
+chekifidentical(node1, node2)
+    if node1 is null and  node2 is null return true
+    if node1 is null or node2 is null return false
+    if node1.data == node2.data && (checkifidentical(node1.left,node2.left)
+    && checkifidentical(node1.right,node2.right) )return false
+
+ // Zig Zag Traversal of Binary Tree
+left to right = true
+ use queue insert root.loop queue untill queue is  empty and inside ion all elements in queue,
+ add in to temp arraylist with index int index = leftToRight ? i : (size - 1 - i) and make leftToRight = !leftToRight
+ and push left and right node in to queue
+
+// Boundary Traversal of a Binary Tree
+left nodes(if left is null,make right as node)
+leaf nodes
+right nodes in reverse(if right is null male left as node)
+
+
+//Vertical Order Traversal of Binary Tree
+
+use hashmap with 0 as root and decrement by 1 if moving left on each iteration
+and increment 1 if moving right on each iteration
+in hashmap have integer as and value type as map with level as key and value
+
+
+//Top view of a Binary Tree
+
+use map to store at each even right most and left most
+
+iterate and increment one if right and decrement if left, add to map if no value is there for that key.
+
+
+//Bottom view of a Binary Tree
+
+use map to store at each even right most and left most
+
+iterate and increment one if right and decrement if left, replace value if some value if present.
+
+//Right/Left view of binary tree
+
+Step 1: Initialise an empty vector `res` to store the left view nodes.
+
+Step 2: Implement a recursive depth-first traversal of the binary tree.
+
+Base Case: Check if the current node is null, if true, return the function as we have reached the end of that particular vertical level.
+
+Recursive Function: The recursive function takes in arguments the current node of the Binary Tree, its current level and the result vector.
+
+We check if the size of the result vector is equal to the current level.
+If true, it means that we have not yet encountered any node at this level in the result vector. Add the value of the current node to the result vector.
+Recursively call the function for the current nodes right then left child with an increased level ie. level + 1.
+We call the right child first as we want to traverse the right most nodes. In cases where there is no right child, the recursion function backtracks and explores the left child.
+Step 3: The recursion continues until it reaches the base case. Return the result vector at the end.
+
+
+
+// lowest common ancestor
+
+use recursion
+check if node ==null or node == p or node ==q
+then return node;
+
+left = checkancestor(node.left,p,q)
+right = checkancestor(node.right,p,q)
+if left ==null then right
+else if right ==null then left
+else root;
+
+//Maximum Width of a Binary Tree
+level order traversal
+use left node as 2*rootindex+1 and right node as 2*rootindex+2;
+make min index as previous root index
+if(current node index - min dex ==0) then start element
+if(current node index - min index == queuesize-1) then last index
+max(ans,last-first+1)
+
+// Construct a Binary Tree from Preorder and Inorder Traversal
+inorder = 9, 3, 15, 20, 7 - left-root-right
+preorder = 3, 9, 20, 15, 7 = root-left-right
+
+root is first element of preorder
+
+call buildMapTree(inorder,0,inorder.length-1,preorder,0,preorder.length-1)
+
+
+method - buildMapTree(inorder,0,inorder_end,preorder,0,preorder_end)
+
+create hashmap with elements in inorder with value and index
+
+call buildTree
+
+method- buildTree(inorder,inorder_start,inorder_end,preorder,preorder_start,preorder_end,hm)
+
+if(inorder_start > preorder_end || inorder_start > preorder_end) return null;
+
+
+Node root = root(preorder[preorder_start]);
+curr_index = hm.get(preorder[preorder_start])
+no_of_left = curr_index - inorder_start;
+
+root.left = buildTree(inorder,inorder_start,curr_index-1,preorder,
+preorder_start+1,preorder_start+no_of_left,hm);
+
+root.right = buildTree(inorder,curr_index+1,inorder_end,preorder,
+preorder_start+no_of_left+1,preorder_end,hm);
+
+// Construct a Binary Tree from postorder and Inorder Traversal
+inorder = 9, 3, 15, 20, 7 - left-root-right
+postorder = 40, 50, 20, 60, 30, 10 = left-right-root
+
+root is first element of preorder
+
+call buildMapTree(inorder,0,inorder.length-1,postorder,0,postorder.length-1)
+
+
+method - buildMapTree(inorder,0,inorder_end,postorder,0,postorder_end)
+
+create hashmap with elements in inorder with value and index
+
+call buildTree
+
+method- buildTree(inorder,inorder_start,inorder_end,postorder,postorder_start,postorder_end,hm)
+
+if(inorder_start > postorder_end || inorder_start > postorder_end) return null;
+
+Node root = root(postorder[postorder_end]);
+curr_index = hm.get(postorder[postorder_end])
+no_of_left = curr_index - inorder_start;
+
+root.left = buildTree(inorder,inorder_start,curr_index-1,postorder,
+postorder_start,postorder_start+no_of_left-1,hm);
+
+root.right = buildTree(inorder,curr_index+1,inorder_end,postorder,
+postorder_start+ no_of_left,postorder_end-1,hm);
+
+// Morris Inorder Traversal of a Binary Tree
+cur = root_node
+
+while cur !=null
+3 cases
+if left is null -> push the value and make right as current
+else
+   take the left subtree
+   present_node = cur.left;
+   while(present_node.right!=null && present_node.right != curr)
+        present_node = present_node.right;
+    if(resent_node.right==null)
+        present_node.right = cur;
+        cur = cur.left;
+    else
+        present_node.right = null;
+        inorder.add(curr);
+        cur = cur.right;
+
+// Morris Inorder Traversal of a Binary Tree
+cur = root_node
+
+while cur !=null
+3 cases
+if left is null
+    inorder.add(curr);
+    cur = cur.right;
+else
+   take the left subtree
+   present_node = cur.left;
+   while(present_node.right!=null && present_node.right != curr)
+        present_node = present_node.right;
+    if(resent_node.right==null)
+        present_node.right = cur;(//if pre order insert cur value here)
+        cur = cur.left;
+    else
+        present_node.right = null;
+        inorder.add(curr);//if inorder
+        cur = cur.right;
+
+
+
+//insert a node in BST
+
+always find a leaf node to insert.
+
+//delete a node in BST
+
+search the element in BST
+
+find the last right of left of the element.
+make the right of the element as right of last right of element
+
+make element as element .right
+
+// kth smallest or largest element
+
+BST - inorder will always gives u the sorted list of elements
+
+use morris inorder traversal and pass a counter with 0
+
+if counter == k then return value
+
+for largest
+
+use right root left (reverse of inorder)
+
+// check if bt is BST
+
+check if left node between min to root and right between root and max
+
+first min = INTEGER>MIN, right = INTEGER.MAX
+
+checkBST(root,max,min)
+if root null return true;
+if(root is not in between min and max) return false
+else checkBST(root.left,min,root.value) && checkBST(root.right,root.value,max)
+
+//Lowest Common Ancestor(LCA) of a binary search tree of p,q
+
+if root = null || root = p || root == q
+return root
+
+if(root<p && root <q)
+    LCA(root.right,p,q)
+else if (root>p && root >q)
+    LAC(root.left,p,q)
+else
+    root;
+
+// Construct a BST from a preorder traversal
+
+use upper bound and lower bound
+
+for left upper bound is root
+
+for right upper bound is max_int
+
+constructpreorder(int[] a)
+    constructbst(a,int_max,new int[]{0})
+
+constructbst(int[] a,bound,int[] index)
+    if(index[0] == a.length || a[index[0]] >bound ) return null;
+    treenode root = a[index[0]++]
+    root.left = constructbst(a,root.val,index)
+    root.right = constructbst(a,bound,index)
+
+
+// inorder sucessor to num
+method(root,num)
+while(root!=null)
+if(root.val >= num.value){
+     root = root.right;
+}else{
+       sucessor = root;
+       root = root.left;
+}
+return sucessor;
+
+// Correct BST with two nodes swapped
+
+use inorder traversal and check if node is greater than next node..
+then temp = greater node and find the similar conditioned node.
+
+if found then swap, else swap adjacent
+
+// find largest bst
+
+use post order traversal and check if bst or not and use max of size

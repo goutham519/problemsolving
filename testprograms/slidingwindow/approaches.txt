@@ -1,0 +1,26 @@
+// maximum substring
+sliding window - two pointer with hashmap containing the each with index
+and make left = max(left,elementindex+1) if some element is found on map
+
+
+// fruits in the basket of 2 types
+max substring with 2 elements
+use map to store the elements and count then trim down until map size is equal to 2
+
+//Binary subarray with sum
+use two iterations
+one to find the number of combos greater than sum
+one to find the number of combos greater than sum-1
+then get the diff b/w above two to find number of combos equal to sum.
+
+//nice subarray - change it binary subarray by ,moduling by 2
+
+
+//Number of substring containing all three characters
+use hm to store index of the character
+
+see if all present and get the least one and add the least one index to sum ,so all combos will be there
+
+//Longest Substring With At Most K Distinct Characters
+max substring with 2 elements
+use map to store the elements and count then trim down until map size is equal to 2

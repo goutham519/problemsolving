@@ -1,0 +1,47 @@
+stack operations
+push
+pop
+top/peek
+size
+
+Queue Operations
+enqueue
+dequeue
+peek
+size
+IsEmpty
+
+///check-for-balanced-parentheses
+
+use stack
+when ever we get ( or { or [ push in to stack
+else pop and check what is previous element and check the current pushing is opp of that
+else return false
+
+after all elements return stack.isEmpty()
+
+///Min stack, alway return min value in constant time
+
+use min variable and then start pushing in to stack
+if next value is less than min, then dont directly push modify value =(2*value)-min and assign min as the value
+when pop if value less than min then pop and make min =(2*min)-value
+
+
+//infix to prefix
+use stack to push the operands from ( till )
+then when he get ')' pop all from stack and add and then push
+
+
+//next greater element in array
+
+use stack and iterate from last and if stack doesnot have elements greater than the elements then add -1
+if stack have any elements less than num then pop the elements and push that element
+
+//next greater element in circular array
+iterate 2n-1 times
+and take element i%n on every iteration
+
+//trapping rain water
+use two pointer approach
+left and right,maxleft,maxright
+res+=maxLeft-arr[left] and res+=maxRight-arr[right]

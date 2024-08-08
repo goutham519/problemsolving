@@ -1,0 +1,117 @@
+//dynamic-programming-climbing-stairs
+either climb one step or climb two steps - nothing but fibonacci
+use prev, prev2 as 0,1
+start from 2nd step
+cur = prev + prev
+prev2 = prev
+prev = cur
+
+// Frog Jump - minimum energy required. - can jump one or two steps at a time
+u need to check all combinations so on evry step need to see whats the best
+30,10,60,10,60,50
+find minenery(n)
+prev,prev1=0;
+for(int i=1;i<n;i++){
+    twostep = integer.max;
+    onestep = prev + Math.abs(arr[i]-arr[i-1])
+    if(i>1)
+     twostep = prev + Math.abs(arr[i]-arr[i-2])
+    curent = Math.Min(onestep,twostep);
+    prev1 = prev;
+    prev= curent;x
+}
+
+}
+print prev;
+
+// frog-jump-with-k-distances
+
+for(int i=1;i<n;i++){
+    minsteps = integer.max;
+    for(int j=1;j<=k;j++){
+        if(i-j>=0)
+           steps  = dp[i-j] + Math.abs(arr[i]-arr[i-j])
+           minsteps = Math.min(minsteps,steps);
+        dp[i] = minsteps;
+    }
+    return dp[n-1];
+}
+
+//Maximum sum of non-adjacent elements
+
+as its not non adjacents.
+take first element as prev and prev2 as 0;
+
+start from 1, then if i>1 add prev2 to the curr element and make it as pick
+make non pick as the older prev.
+compare both and them take the max one as cur.
+
+apply, prev2=prev,prev=cur;
+return prev in end;
+
+
+{2, 1, 4, 9}
+int prev = arr[0],prev2 = 0;
+for(int i=1;i<n;i++){
+    pick = arr[i]
+    if(i>1)
+        pick = pick +prev2;
+    int nonpick =prev;
+    int cur = Math.max(pick,nonpick);
+    prev2=prev;
+    prev = cur;
+}
+return prev
+
+
+// Ninja's Training
+
+ A Ninja has an ‘N’ Day training schedule. He has to perform one of these three activities
+  (Running, Fighting Practice, or Learning New Moves) each day. There are merit points
+  associated with performing an activity each day. The same activity can’t be performed
+  on two consecutive days. We need to find the maximum merit points the ninja can attain in N Days.
+
+int[][] points = {{10, 40, 70},
+                          {20, 50, 80},
+                          {30, 60, 90}};
+
+iterate for all combos and best.
+
+base case with prev values
+
+prev[0][0] = Math.max(arr[0][1],arr[0][2])
+prev[0][1] = Math.max(arr[0][0],arr[0][2])
+prev[0][2] = Math.max(arr[0][0],arr[0][1])
+prev[0][3] = Math.max(arr[0][1],Math.max(arr[0][2],arr[0][3])) - max of whole row - so that it can be used
+
+for(day=1->n-1)
+    int temp[] = new int[4];
+    for(last=0;i<4)
+        temp[last] = 0;
+        for(int task=0;j<=2)
+            if(task!=last)
+                temp[task]= Math.max(temp[last],points[day][task]+prev[task])
+
+
+
+
+70,70,40 -> 70
+90,
+
+// Grid Unique Paths
+
+// minimum path
+
+
+// DP on subsequences
+// we need to use take, not take
+not take first , take next
+
+we need to use dp[n][target+1]
+
+it contains all the elements and if target can be acheived.
+
+if subset if present boolean then dp array with boolean, taken or not taken
+
+count of subsets means dp array with 0 and dp[][] set with taken +nottaken;
+

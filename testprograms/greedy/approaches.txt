@@ -1,0 +1,91 @@
+// Fractional Knapsack
+two arrays
+sort them based on question
+perform the ask
+
+
+//Find minimum number of coins
+iterate whole coins list
+and try to check coins less than the value and subtract it.
+
+//N meetings in one room
+
+create a new class start end pos
+
+then sort list of all meetings based on end time, if end time is equal then sort with position
+
+iterate over array to see max meeting that can be done in a day
+
+
+//Minimum number of platforms required for a railway
+
+sort the two array independently -> start time and end time then
+
+iterate over two array while i=1 and j=0, result =1, platforms =1
+check if start time(arr[i]) greater than endtime(j) then decrement platform move j
+else incremet platform move i
+if platform > result then result = platform
+
+// Job Sequencing Problem
+
+Sort the jobs in descending order of profit.
+If the maximum deadline is x, make an array of size x .Each array index is set to -1 initially as no jobs have been performed yet.
+For every job check if it can be performed on its last day.
+If possible mark that index with the job id and add the profit to our answer.
+If not possible, loop through the previous indexes until an empty slot is found.
+
+
+// assign cookies
+greed of each arr1
+no fo cookies arr2
+
+sort both arrays
+have two pointers and move using while loop.
+
+// min coins from array to form target(coin can be taken any times)
+int[][] dp = new int[n][T + 1];
+
+        // Initialize the dp array with -1 to indicate that subproblems are not solved yet
+        for (int row[] : dp)
+            Arrays.fill(row, -1);
+
+f(arr,target,dp,ind)
+if i==0
+    if(target%a[i]==0) return target%1[i];
+    else (int) Math.pow(10, 9);
+if (dp[ind][T] != -1)
+            return dp[ind][T];
+
+not taken = f(ind-1,target);
+taken = (int) Math.pow(10, 9);
+use if a[ind]<=target = taken = 1 + f(ind,target)
+return dp[ind][T]=min(taken,nottaken);
+
+//count-partitions-with-given-difference
+
+use take not taken and base case as below
+  if(ind == 0){
+        if(target==0 && arr[0]==0)
+            return 2;
+        if(target==0 || target == arr[0])
+            return 1;
+        return 0;
+    }
+ //We are given an array ‘ARR’ of size ‘N’ and a number ‘Target’. Our task is to build an expression from the given array where we can place a ‘+’ or ‘-’ sign in front of an integer. We want to place a sign in front of every integer of the array and get our required target. We need to count the number of ways in which we can achieve our required target.
+
+use the above approach itself.
+
+
+//max value in dp(max coins, rod-cutting-problem)
+
+dp[ind][tar] = Math.max(taken,nottaken)
+//min value in dp
+dp[ind][T] = Math.min(notTaken, taken)
+//count problems // target-sum
+dp[ind][T] = notTaken + taken;
+//boolean(if subset have equal value)
+dp[ind][target] = notTaken || taken ? 1 : 0;
+
+
+
+
