@@ -1,0 +1,15 @@
+// find number of distinct substrings
+
+use trie data structure, while inserting if the word is not present, then icrease count.
+
+in that way we can reduce the iterations.
+
+// bits
+
+// Extract the i-th bit of the number
+            int bit = (num >> i) & 1;
+
+
+// Update the maximum XOR
+                // value with the current bit
+                maxNum |= (1 << i);
